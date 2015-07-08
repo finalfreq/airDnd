@@ -14,6 +14,8 @@ gem 'githubrepo'
 gem 'devise'
 gem 'paperclip'
 gem 'bootstrap_form'
+gem 'bootswatch-rails'
+
 
 
 
