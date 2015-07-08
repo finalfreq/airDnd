@@ -1,0 +1,18 @@
+<%= content_for :title, "New " %>
+
+<%= render "layouts/errors", :object => @unit%>
+
+
+
+
+<%= bootstrap_form_for @unit do |f| %>
+  <%= f.text_field :name, placeholder: 'Add Name'  %>
+  <%= f.text_field :description, placeholder: 'Add Name'  %>
+  <%= f.text_field :address, placeholder: 'Add Name'  %>
+  <%= f.text_field :city, placeholder: 'Add Name'  %>
+  <%= f.text_field :state, placeholder: 'Add Name'  %>
+  <%= f.text_field :zip, placeholder: 'Add Name'  %>
+  
+  <%= f.submit 'Answer', data:{disable_with: 'Answering....'}, class: 'btn btn-primary btn-block' %>
+
+<% end %>
