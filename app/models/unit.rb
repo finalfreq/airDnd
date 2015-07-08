@@ -10,4 +10,14 @@ class Unit<ActiveRecord::Base
   validates :state, presence: true
   validates :zip, presence: true
 
+
+  # def photos_array=(array)
+  #   array.each do |file|
+  #     photos.build(:avatar => file)
+  #   end
+  # end
+
+
+
+
 end

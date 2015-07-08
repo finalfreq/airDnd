@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @unit = Unit.new
   end
 
   def show

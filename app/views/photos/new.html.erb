@@ -1,0 +1,13 @@
+<%= content_for :title, "New " %>
+
+<%= render "layouts/errors", :object => @photo%>
+
+
+
+
+<%= bootstrap_form_for [@unit, @photo ] do |f| %>
+  <%= f.file_field :avatar, placeholder: 'Add Photo'  %>
+
+  <%= f.submit 'Add', data:{disable_with: 'Adding....'}, class: 'btn btn-primary btn-block' %>
+
+<% end %>

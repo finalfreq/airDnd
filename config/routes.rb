@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users
   resources :units do
     resources :reservations, :except => [:show, :index]
+    resources :photos
   end
 
   resources :reservations, :only => [:show, :index]

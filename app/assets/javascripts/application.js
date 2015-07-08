@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
+
 //= require_tree .
+
+$(function() {
+  $('#add-unit').click(function(){
+    $('#unit-modal').modal('show')
+  });
+});

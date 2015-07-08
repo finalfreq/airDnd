@@ -2,3 +2,5 @@
 
 
 <h2> - <%= @unit.description %>  </h2>
+<%= link_to "Add new photo", new_unit_photo_path(@unit) %>
+<%= image_tag(@unit.photos.last.avatar.url(:thumb)) %>

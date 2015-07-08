@@ -22,3 +22,25 @@
 
 
  @import "bootswatch/darkly/bootswatch";
+
+body {
+  background-image: image-url('background.jpg');
+  -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          background-repeat: no-repeat;
+}
+
+form {
+  padding: 5px;
+  color: #FFFFFF;
+}
+
+.panel {
+  padding: 5px;
+}
+
+.img-responsive {
+  margin: 0 auto;
+}
