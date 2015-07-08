@@ -11,13 +11,10 @@ class Unit<ActiveRecord::Base
   validates :zip, presence: true
 
 
-  # def photos_array=(array)
-  #   array.each do |file|
-  #     photos.build(:avatar => file)
-  #   end
-  # end
+  def full_address
+    address + ', ' + city + ', ' + state + ' ' + zip
 
-
+  end
 
 
 end

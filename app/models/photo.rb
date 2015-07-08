@@ -9,6 +9,8 @@ class Photo < ActiveRecord::Base
 	belongs_to :unit
 	validates_attachment_content_type :avatar, :content_type => /\Aimage/
 
-
+	def image(*args)
+		avatar.url(*args)
+	end
 
 end

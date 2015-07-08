@@ -1,6 +1,24 @@
-<h1><%= @unit.name %></h1>
+<h1 class="page-header text-center"><%= @unit.name %></h1>
+<h4 class='text-center'> <em> - <%= @unit.description %></em>  </h4>
 
 
-<h2> - <%= @unit.description %>  </h2>
-<%= link_to "Add new photo", new_unit_photo_path(@unit) %>
-<%= image_tag(@unit.photos.last.avatar.url(:thumb)) %>
+<h3 class="text-center">Location of Dwelling: </h3>
+   <h4 class="text-center"><%= @unit.full_address %> </h4>
+
+
+<% if @unit.photos.any? %>
+  <% @unit.photos.in_groups_of(3, false).each do |photos| %>
+  <div class="row">
+    <% photos.each do |photo| %>
+      <div class="col-xs-12 col-md-4">
+        <%= image_tag(photo.image(:medium), class: 'img-responsive') %>
+      </div>
+    <% end %>
+  </div>
+  <%end %>
+<% end %>
+
+
+<p>
+  <%= link_to "Add new photo", new_unit_photo_path(@unit), class: 'btn btn-secondary', id: 'add-danger' %>
+</p>

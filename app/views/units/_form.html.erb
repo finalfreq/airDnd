@@ -7,12 +7,12 @@
 
 <%= bootstrap_form_for @unit do |f| %>
   <%= f.text_field :name, placeholder: 'Add Name'  %>
-  <%= f.text_field :description, placeholder: 'Add Name'  %>
-  <%= f.text_field :address, placeholder: 'Add Name'  %>
-  <%= f.text_field :city, placeholder: 'Add Name'  %>
-  <%= f.text_field :state, placeholder: 'Add Name'  %>
-  <%= f.text_field :zip, placeholder: 'Add Name'  %>
+  <%= f.text_area :description, placeholder: 'Add Description'  %>
+  <%= f.text_field :address, placeholder: 'Add Address'  %>
+  <%= f.text_field :city, placeholder: 'Add City'  %>
+  <%= f.text_field :state, placeholder: 'Add State'  %>
+  <%= f.text_field :zip, placeholder: 'Add Zip'  %>
 
-  <%= f.submit 'Add', data:{disable_with: 'Adding....'}, class: 'btn btn-primary btn-block' %>
+  <%= f.submit 'Add Dwelling', data:{disable_with: 'Dwelling....'}, class: 'btn btn-success btn-block' %>
 
 <% end %>
