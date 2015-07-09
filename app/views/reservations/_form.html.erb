@@ -1,0 +1,15 @@
+<%= content_for :title, "New " %>
+
+<%= render "layouts/errors", :object => @reservation%>
+
+
+
+
+<%= bootstrap_form_for [@unit, @reservation] do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.text_field :start_date, placeholder: 'Start date'  %>
+  <%= f.text_area :end_date, placeholder: 'End date'  %>
+
+  <%= f.submit 'Create reservation', data:{disable_with: 'Dwelling....'}, class: 'btn btn-success btn-block' %>
+
+<% end %>
