@@ -6,6 +6,7 @@
 
 
 <%= bootstrap_form_for @unit do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.text_field :name, placeholder: 'Add Name'  %>
   <%= f.text_area :description, placeholder: 'Add Description'  %>
   <%= f.text_field :address, placeholder: 'Add Address'  %>

@@ -14,11 +14,16 @@ class Ability
         can :modify, :all, :user_id => :user_id
         can :modify, User, :id => :user_id
         can :create, Unit
+        can :create, Photo
+        can :modify, Photo
 
       elsif user.role == 'renter'
         can :read, :all
         can :create, Reservation
         can :modify, Reservation, :user_id => :user_id
+
+      else
+        can :read, :all
       end
     #
     # The first argument to `can` is the action you are giving the user

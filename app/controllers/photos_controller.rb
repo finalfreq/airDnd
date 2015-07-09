@@ -1,4 +1,7 @@
 class PhotosController<ApplicationController
+  load_and_authorize_resource param_method: :photo_params
+  load_and_authorize_resource :unit
+  before_action :authenticate_user!
 
   def new
     @unit = Unit.find(params[:unit_id])

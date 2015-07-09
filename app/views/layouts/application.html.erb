@@ -17,7 +17,9 @@
           <li> <%= link_to "About", users_path %> </li>
           <li> <%= link_to "All Dwellings", units_path %> </li>
           <% if current_user %>
-            <li><%=link_to 'Add Dwelling', new_unit_path %></li>
+            <% if can? :create, Unit %>
+              <li><%=link_to 'Add Dwelling', new_unit_path %></li>
+            <% end %>
           <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
