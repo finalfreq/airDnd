@@ -1,7 +1,16 @@
+
+<% if can? :modify, @unit %>
+<div class="modify" role="group">
+
+  <%= link_to "Add new photo", new_unit_photo_path(@unit), class: 'btn btn-info'%>
+  <%= link_to "Edit #{@unit.name}", edit_unit_path(@unit), class: "btn btn-warning" %>
+  <%= link_to "Delete #{@unit.name}", unit_path(@unit), class: "btn btn-danger",
+                                                        data: { prompt: 'Are you sure?',
+                                                                method: 'delete'} %>
+</div>
+<% end %>
 <h1 class="page-header text-center"><%= @unit.name %></h1>
 <h4 class='text-center'> <em> - <%= @unit.description %></em>  </h4>
-
-
 <h3 class="text-center">Location of Dwelling: </h3>
    <h4 class="text-center"><%= @unit.full_address %> </h4>
 
@@ -17,13 +26,17 @@
   </div>
   <%end %>
 <% end %>
+<h3>This unit has <%= @unit.reservations.length %> upcoming reservations</h3>
 
-<% if can? :create, Photo %>
-  <p>
-    <%= link_to "Add new photo", new_unit_photo_path(@unit), class: 'btn btn-secondary', id: 'add-danger' %>
-  </p>
-<% end %>
+<ul>
+  <% @unit.reservations.each do |reservation| %>
+  <li>
+    <h3> <%= link_to "Reservation from #{reservation.start_date} to #{reservation.end_date}", reservation_path(reservation) %> </h3>
+  </li>
+  <% end %>
+</ul>
 
 
-
+<% if can? :create, Reservation %>
 <%= link_to "Reserve this dwelling", new_unit_reservation_path(@unit) %>
+<% end %>

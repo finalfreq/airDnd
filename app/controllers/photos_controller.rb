@@ -13,9 +13,9 @@ class PhotosController<ApplicationController
     @unit = Unit.find(params[:unit_id])
     @photo = @unit.photos.new(photo_params)
     if @photo.save
-      redirect_to @unit
+      redirect_to @unit, notice: 'Photo successfully added'
     else
-        render :new
+        render :new, alert: 'There was a problem uploading file'
     end
   end
 

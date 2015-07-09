@@ -1,7 +1,8 @@
 class ReservationsController<ApplicationController
   load_and_authorize_resource param_method: :reservation_params
-
+  load_and_authorize_resource :unit
   def show
+    @unit = Unit.find params[:id]
     @reservation = Reservation.find params[:id]
   end
 
@@ -15,10 +16,28 @@ class ReservationsController<ApplicationController
     @unit = Unit.find params[:unit_id]
     @reservation = @unit.reservations.new reservation_params
     if @reservation.save
-      redirect_to @reservation
+      redirect_to @reservation, notice: 'Your reservation was successfully booked'
     else
-      render :new
+      render :new, alert: 'your reservation was unsuccessfully booked'
     end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @reservation.update reservation_params
+      redirect_to @unit, notice: "Reservation successfully changed"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @reservation = Reservation.find params[:id]
+    @reservation.destroy
+    redirect_to unit_path @reservation.unit.id
   end
 
   private

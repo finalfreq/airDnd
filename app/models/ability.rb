@@ -11,11 +11,11 @@ class Ability
         can :manage, :all
       elsif user.role == 'owner'
         can :read, :all
-        can :modify, :all, :user_id => :user_id
-        can :modify, User, :id => :user_id
+        can :modify, :all, :user_id => user.id
+        can :modify, User, :id => user.id
         can :create, Unit
         can :create, Photo
-        can :modify, Photo
+        can :modify, Photo, :user_id => user.id
 
       elsif user.role == 'renter'
         can :read, :all
