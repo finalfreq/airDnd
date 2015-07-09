@@ -33,6 +33,13 @@ class UnitsController<ApplicationController
     end
   end
 
+
+  def destroy
+    @unit = Unit.find params[:id]
+    @unit.destroy
+    redirect_to units_path
+  end
+
 private
   def unit_params
     params.require(:unit).permit(:user_id, :name, :description, :address, :city, :state, :zip)

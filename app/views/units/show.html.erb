@@ -5,7 +5,7 @@
   <%= link_to "Add new photo", new_unit_photo_path(@unit), class: 'btn btn-info'%>
   <%= link_to "Edit #{@unit.name}", edit_unit_path(@unit), class: "btn btn-warning" %>
   <%= link_to "Delete #{@unit.name}", unit_path(@unit), class: "btn btn-danger",
-                                                        data: { prompt: 'Are you sure?',
+                                                        data: { confirm: 'Are you sure?',
                                                                 method: 'delete'} %>
 </div>
 <% end %>
