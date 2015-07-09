@@ -16,7 +16,7 @@ gem 'paperclip'
 gem 'bootstrap_form'
 gem 'bootswatch-rails'
 gem 'cancancan', '~> 1.10'
-
+gem 'geocoder'
 
 
 group :development do

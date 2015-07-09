@@ -1,0 +1,38 @@
+<% if @unit.reservations.any? %>
+<div class="col-md-5 col-md-offset-4">
+  <h3>Future Reservations</h3>
+  <table class="table-striped table-bordered table-responsive">
+      <tr>
+        <th>
+          Reservations
+        </th>
+        <th>
+          Check-in date:
+        </th>
+        <th>
+          Check out-date:
+        </th>
+      </tr>
+    <% @unit.reservations.each do |reservation| %>
+      <%= link_to reservation_path(reservation) do %>
+        <tr>
+          <td>
+            <%= reservation.id %>
+          </td>
+          <td class="active">
+            <%= reservation.start_date %>
+          </td>
+          <td class="warning">
+            <%= reservation.end_date %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
+
+<% else %>
+
+<h3>No reservations have been made at this time.</h3>
+
+<% end %>

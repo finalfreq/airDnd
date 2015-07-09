@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   ROLES = %i[owner renter]
 
   has_many :reservations
-  has_many :units, through: :reservations
+  has_many :units
   validates_presence_of :email
 
 

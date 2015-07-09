@@ -1,8 +1,9 @@
 class Unit<ActiveRecord::Base
 
-  has_many :users, through: :reservations
+  belongs_to :user
   has_many :reservations
   has_many :photos
+
   validates :name, presence: true
   validates :description, presence: true
   validates :address, presence: true
@@ -10,6 +11,8 @@ class Unit<ActiveRecord::Base
   validates :state, presence: true
   validates :zip, presence: true
 
+  geocoded_by :address
+  after_validation :geocode
 
   def full_address
     address + ', ' + city + ', ' + state + ' ' + zip

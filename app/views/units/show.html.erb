@@ -1,21 +1,23 @@
-
-<% if can? :modify, @unit %>
+<h1 class="page-header text-center"><%= @unit.name %></h1>
 <div class="modify" role="group">
 
-  <%= link_to "Add new photo", new_unit_photo_path(@unit), class: 'btn btn-info'%>
-  <%= link_to "Edit #{@unit.name}", edit_unit_path(@unit), class: "btn btn-warning" %>
-  <%= link_to "Delete #{@unit.name}", unit_path(@unit), class: "btn btn-danger",
+  <%= link_to "Add new photo", new_unit_photo_path(@unit), class: 'btn btn-info btn-xs'%>
+  <%= link_to "Edit #{@unit.name}", edit_unit_path(@unit), class: "btn btn-warning btn-xs" %>
+  <%= link_to "Delete #{@unit.name}", unit_path(@unit), class: "btn btn-danger btn-xs",
                                                         data: { confirm: 'Are you sure?',
                                                                 method: 'delete'} %>
 </div>
+<div id="maps">
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=350x200&senor=false&zoom=16&markers=#{@unit.latitude}%2C#{@unit.longitude}" %>
+  <p class="lead">Address: <%= @unit.full_address %> </p>
+ </div>
+<% if can? :modify, @unit %>
 <% end %>
-<h1 class="page-header text-center"><%= @unit.name %></h1>
 <h4 class='text-center'> <em> - <%= @unit.description %></em>  </h4>
-<h3 class="text-center">Location of Dwelling: </h3>
-   <h4 class="text-center"><%= @unit.full_address %> </h4>
 
 
 <% if @unit.photos.any? %>
+<h1>Photos of property</h1>
   <% @unit.photos.in_groups_of(3, false).each do |photos| %>
   <div class="row">
     <% photos.each do |photo| %>

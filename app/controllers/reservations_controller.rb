@@ -1,9 +1,14 @@
 class ReservationsController<ApplicationController
   load_and_authorize_resource param_method: :reservation_params
   load_and_authorize_resource :unit
+
+  def index
+
+  end
+
   def show
-    @unit = Unit.find params[:id]
     @reservation = Reservation.find params[:id]
+    @unit = Unit.find(@reservation.unit.id)
   end
 
   def new
