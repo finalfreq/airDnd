@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  ROLES = %i[admin owner renter]
+  ROLES = %i[owner renter]
 
   has_many :reservations
   has_many :units, through: :reservations
