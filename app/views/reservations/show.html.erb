@@ -9,5 +9,5 @@
 <%= link_to 'Change reservation', edit_unit_reservation_path(@unit, @reservation) %>
 
 <%= link_to "Delete this reservation", unit_reservation_path(@unit, @reservation), class: "btn btn-danger",
-                                                      data: { prompt: 'Are you sure?',
+                                                      data: { confirm: 'Are you sure?',
                                                               method: 'delete'} %>

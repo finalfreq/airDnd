@@ -90,3 +90,7 @@ h1, h2, h3, h4, h5, h6, p, p.lead, {
   padding: 0;
   color: $primary-color;
 }
+
+table td, th {
+  padding: 5px;
+}
